@@ -20,8 +20,7 @@ class SettingController extends Controller
         } 
         return responsejson(1 , 'OK' , $setting);  
     }  
-
-   
+ 
        
     public function about()
     {   
@@ -49,72 +48,6 @@ class SettingController extends Controller
         $report->save();
         return responsejson(1 , 'OK' , $report); 
     } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // public function create(request $request)
-    // {
-    //     $data = $request->all(); 
-    //     $validator = validator()->make($data, [ 
-    //         'phone'         => 'required',
-    //         'email'         => 'required',
-    //         'about_app'     => 'required',
-    //         'facebook_url'  => 'required',
-    //         'twitter_url'   => 'required',
-    //         'youtube_url'   => 'required', 
-    //         'whatsapp'      => 'required', 
-    //         'instagram_url' => 'required', 
-    //         'google_url'    => 'required',  
-    //         'about'         => 'required',
-    //     ]); 
-    //     if ($validator->fails()) 
-    //     {
-    //         return responsejson( 0 , $validator->errors()->first() , $validator->errors()); 
-    //     } 
-    //     $setting = Settings::create($request->all());  
-    //     $setting->save();
-    //     return responsejson(1 , 'OK' , $setting ); 
-    // }  
-
-
-    // public function update(request $request)
-    // {
-    //     $data = $request->all(); 
-    //     $validator = validator()->make($data, [ 
-    //         'phone'         => 'required',
-    //         'email'         => 'required',
-    //         'about_app'     => 'required',
-    //         'facebook_url'  => 'required',
-    //         'twitter_url'   => 'required',
-    //         'youtube_url'   => 'required', 
-    //         'whatsapp'      => 'required', 
-    //         'instagram_url' => 'required', 
-    //         'google_url'    => 'required',  
-    //         'about'         => 'required',
-    //     ]); 
-    //     if ($validator->fails()) 
-    //     {
-    //         return responsejson( 0 , $validator->errors()->first() , $validator->errors()); 
-    //     } 
-    //     $setting  = Settings::first();
-    //     $setting->update($data); 
-    //     return responsejson(1 , 'OK' , $setting); 
-    // }  
  
- 
-
 
 }

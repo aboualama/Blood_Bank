@@ -19,6 +19,7 @@ Route::group(['prefix' => 'v1.1' , 'namespace' => 'Api'] , function(){
   
 	Route::post('register' , 'AuthController@register');
 	Route::post('login' , 'AuthController@login')->name('login');
+	Route::get('profile' , 'AuthController@profile');
 
 
 
@@ -49,6 +50,20 @@ Route::group(['prefix' => 'v1.1' , 'namespace' => 'Api'] , function(){
 	// });
 
 });
+
+
+
+
+		// Route::post('setting' , 'SettingController@create');
+		// Route::put('setting/update' , 'SettingController@update');
+		// Route::post('post' , 'PostController@create');
+		// Route::put('post/{id}/update' , 'PostController@update');
+		// Route::delete('post/{id}/delete' , 'PostController@delete');
+		// Route::get('governorate' , 'CityController@governorate');
+		// Route::get('city' , 'CityController@city');  
+		// Route::get('categories' , 'PostController@categories');
+		// Route::get('category/{id}' , 'PostController@category');
+
 
 
 

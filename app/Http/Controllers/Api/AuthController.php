@@ -23,7 +23,7 @@ class AuthController extends Controller
 			'birth_date'         => 'required',
 			'city_id'            => 'required|numeric',
 			'phone'              => 'required|numeric',
-			'donation_last_date' => 'required',
+			'donation_last_date' => 'required|date|before:today',
 			'blood_type'         => 'required|in:O-,O+,B-,B+,A+,A-,AB-,AB+',
 			'password'           => 'required|confirmed',
     	]); 
@@ -76,6 +76,7 @@ class AuthController extends Controller
     	} 
         return responsejson(0 , 'fails' , 'phone is wrong');  
     }  
+
 
 
 

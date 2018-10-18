@@ -8,18 +8,7 @@ use App\Models\Governorate;
 use App\Models\City; 
 
 class CityController extends Controller
-{ 
-
-      
-    public function governorate(request $request)
-    {
-    	$governorate = Governorate::paginate(5);
-
-    	return responsejson(1 , 'ok' , $governorate);
-    }
-
-
-
+{  
      
     public function city(request $request)
     { 
@@ -36,3 +25,6 @@ class CityController extends Controller
  
 
 }
+
+        // $request->client_id = auth()->guard('api')->id; 
+ 

@@ -8,8 +8,7 @@ class Client extends Model
 {
  
     protected $fillable = 
-    	                   ['name', 'email', 'birth_date', 'city_id', 'phone', 'donation_last_date', 'password', 'blood_type', 
-    	                    'is_active', 'api_token'];
+    	                   ['name', 'email', 'birth_date', 'city_id', 'phone', 'donation_last_date', 'password', 'blood_type', 'is_active', 'api_token'];
  
 
 

@@ -17,20 +17,16 @@ class DonationController extends Controller
                 if($request->has('blood_type')) 
                 {
                     $query->where('blood_type' , $request->blood_type);
-                } 
-
+                }  
                 if($request->has('city_id')) 
                 {
                     $query->where('city_id' , $request->city_id);
-                } 
-                
-            })->paginate(10);
-
+                }  
+            })->paginate(10); 
         if($donations->count() == 0)
         {
             return responsejson( 0 , 'OPPs' , 'There Is No Posts');
-        }
- 
+        } 
         return responsejson(1 , 'ok' , $donations); 
     } 
        
@@ -38,13 +34,11 @@ class DonationController extends Controller
        
     public function show($id)
     {   
-        $donation = DonationRequest::where('id' , $id)->first();
-
+        $donation = DonationRequest::where('id' , $id)->first(); 
         if(! $donation)
         {
             return responsejson( 0 , 'OPPs' , 'There Is No Donation Request');
-        }
-        
+        } 
         return responsejson(1 , 'OK' , $donation);  
     }  
 
@@ -71,10 +65,7 @@ class DonationController extends Controller
         if ($validator->fails()) 
         {
             return responsejson( 0 , $validator->errors()->first() , $validator->errors()); 
-        }
-
-        // $request->client_id = auth()->guard('api')->id; 
- 
+        } 
         $donation = DonationRequest::create($request->all());  
         $donation->save();
         return responsejson(1 , 'OK' , $donation ); 
