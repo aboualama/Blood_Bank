@@ -17,15 +17,14 @@ class AuthController extends Controller
     {
     	$data = $request->all(); 
     	$validator = validator()->make($data, [
-
-			'name'               => 'required',
-			'email'              => 'required|email|unique:clients,email,',
-			'birth_date'         => 'required',
+            'name'               => 'required|min:6',
+			'email'              => 'required|email|unique:clients',
+            'birth_date'         => 'required|date|before:2010-01-01',
 			'city_id'            => 'required|numeric',
-			'phone'              => 'required|numeric',
+			'phone'              => 'required|numeric|unique:clients',
 			'donation_last_date' => 'required|date|before:today',
 			'blood_type'         => 'required|in:O-,O+,B-,B+,A+,A-,AB-,AB+',
-			'password'           => 'required|confirmed',
+			'password'           => 'required|confirmed|min:6|max:60|alpha_num',  
     	]); 
     	if ($validator->fails()) 
     	{
@@ -85,12 +84,12 @@ class AuthController extends Controller
         $client = Client::where('api_token' ,  $request->api_token)->first();  
         $data = $request->all(); 
         $validator = validator()->make($data, [   
-            'name'               => 'required',
+            'name'               => 'required|min:6',
             'email'              => 'required|email|unique:clients,email,'.$client->id,
-            'birth_date'         => 'required',
+            'birth_date'         => 'required|date|before:2010-01-01',
             'city_id'            => 'required|numeric',
-            'phone'              => 'required|numeric',
-            'donation_last_date' => 'required',
+            'phone'              => 'required|numeric|unique:clients,phone,'.$client->id,
+            'donation_last_date' => 'required|date|before:today',
             'blood_type'         => 'required|in:O-,O+,B-,B+,A+,A-,AB-,AB+', 
         ]); 
         if ($validator->fails()) 
