@@ -32,10 +32,7 @@ Route::group(['prefix' => 'v1.1' , 'namespace' => 'Api'] , function(){
 
 		Route::get('donation' , 'DonationController@index');
 		Route::get('donation/{id}' , 'DonationController@show');
-		Route::post('donation' , 'DonationController@create');   
-
-		Route::post('notification/{id}/edit' , 'NotificationController@edit'); 
-		Route::put('notification' , 'NotificationController@update'); 
+		Route::post('donation' , 'DonationController@create');  
 
 		Route::post('favorite/{post}' , 'FavoriteController@addfavorite');
 		Route::get('favorite' , 'FavoriteController@favoritepost'); 
