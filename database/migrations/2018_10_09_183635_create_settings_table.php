@@ -19,6 +19,7 @@ class CreateSettingsTable extends Migration {
 			$table->string('whatsapp');
 			$table->string('instagram_url');
 			$table->string('google_url');
+			$table->text('about');
 		});
 	}
 

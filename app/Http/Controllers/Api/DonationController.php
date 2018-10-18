@@ -9,40 +9,46 @@ use App\Models\DonationRequest;
 class DonationController extends Controller
 {  
   
-    // public function index(request $request)
-    // { 
-    //     $post = Post::where(function($query) use($request)
-    //         { 
-    //             if($request->has('category_id')) 
-    //             {
-    //                 $query->where('category_id' , $request->category_id);
-    //             } 
+  
+    public function index(request $request)
+    { 
+        $donations = DonationRequest::where(function($query) use($request)
+            { 
+                if($request->has('blood_type')) 
+                {
+                    $query->where('blood_type' , $request->blood_type);
+                } 
 
-    //             if($request->has('client_id')) 
-    //             {
-    //                 $query->where('client_id' , $request->client_id);
-    //             }
+                if($request->has('city_id')) 
+                {
+                    $query->where('city_id' , $request->city_id);
+                } 
                 
-    //         })->with('category')->with('client')->paginate(10);
+            })->paginate(10);
 
-    //     return responsejson(1 , 'ok' , $post); 
-    // } 
+        if($donations->count() == 0)
+        {
+            return responsejson( 0 , 'OPPs' , 'There Is No Posts');
+        }
+ 
+        return responsejson(1 , 'ok' , $donations); 
+    } 
        
-    // public function show($id)
-    // {   
-    //     $post = Post::where('id' , $id)->first();
+   
+       
+    public function show($id)
+    {   
+        $donation = DonationRequest::where('id' , $id)->first();
 
-    //     if(! $post)
-    //     {
-    //         return responsejson( 0 , 'OPPs' , 'There Is No Post');
-    //     }
+        if(! $donation)
+        {
+            return responsejson( 0 , 'OPPs' , 'There Is No Donation Request');
+        }
         
-    //     return responsejson(1 , 'OK' , [
-    //                                     'post'     => $post,
-    //                                     'client'   => $post->client->name,
-    //                                     'category' => $post->category->name, 
-    //                                     ]);  
-    // }  
+        return responsejson(1 , 'OK' , $donation);  
+    }  
+
+
 
     public function create(request $request)
     {
