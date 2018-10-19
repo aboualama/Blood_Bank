@@ -39,7 +39,7 @@ class FavoriteController extends Controller
         $favorite   = $user->favorite(); 
         if($favorite->count() > 0)
         {
-            return responsejson(1 , 'OK' , [ 'posts title' => $user->favorite()->pluck('title') ] );  
+            return responsejson(1 , 'OK' , [ 'posts title' => $user->favorite()->pluck('name') ] );  
         } 
         return responsejson(0 , 'fails' , 'there is no posts');
     }     

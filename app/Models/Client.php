@@ -40,6 +40,18 @@ class Client extends Model
     {
         return $this->belongsToMany(Post::class)->withTimestamps();  
     }
+ 
+
+    public function notification_blood()
+    {
+        return $this->belongsToMany(BloodType::class , 'blood_type_client');  
+    }
+ 
+
+    public function notification_city()
+    {
+        return $this->belongsToMany(City::class , 'city_client');  
+    }
 
 
 
