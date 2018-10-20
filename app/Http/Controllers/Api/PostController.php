@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request; 
 use App\Models\Category;
 use App\Models\Post; 
+use App\User; 
 
 class PostController extends Controller
 {  
@@ -18,15 +19,16 @@ class PostController extends Controller
                 {
                     $query->where('category_id' , $request->category_id);
                 }  
-                if($request->has('client_id')) 
+                if($request->has('user_id')) 
                 {
-                    $query->where('client_id' , $request->client_id);
+                    $query->where('user_id' , $request->user_id);
                 } 
                 if($request->has('search')) 
                 {
                     $query->where('title', 'like' ,'%'.$request->search.'%');
                 } 
-            })->with('category')->with('client')->paginate(10); 
+            })->with('category')->with('user')->withcount('favorite')->paginate(10); 
+
         if($posts->count() == 0)
         {
             return responsejson( 0 , 'OPPs' , 'There Is No Any Posts');
@@ -46,9 +48,7 @@ class PostController extends Controller
         } 
         return responsejson(1 , 'OK' , [
                                         'post'            => $post,
-                                        'favorite count'  => $post->favorite()->count(), 
-                                        'client'          => $post->client->name,
-                                        'category'        => $post->category->name, 
+                                        'favorite count'  => $post->favorite()->count(),  
                                         ]);  
     }  
   

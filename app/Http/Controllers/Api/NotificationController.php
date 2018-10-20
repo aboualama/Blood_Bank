@@ -17,19 +17,21 @@ class NotificationController extends Controller
         $api_token = $request->api_token; 
         $user =  Client::where('api_token' , $api_token)->first();    
 
-        if($request->has('blood_type'))
-        {
-            $user->notification_blood()->sync($request->blood_type) ;       
-        } 
 
-        if ($request->has('city_id')) 
-        {
-            $user->notification_city()->sync($request->city_id) ;       
-        }  
 
+        $blood = $user->notification_blood(); 
+
+        $notiblood = ($request->has('blood_type')) ? $blood->sync($request->blood_type) : $blood->detach($request->blood_type) ;  
+
+
+        $city = $user->notification_city(); 
+
+        $noticity = ($request->has('city_id')) ? $city->sync($request->city_id) : $city->detach($request->city_id) ;  
+
+ 
         return responsejson(1 , 'OK' , [
-                                        'Blood' => $user->notification_blood()->pluck('name') ,
-                                        'City'  => $user->notification_city()->pluck('name') ,
+                                        'Blood' => $blood->pluck('name') ,
+                                        'City'  => $city->pluck('name') ,
                                         ]);  
     }        
            

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model 
 {
  
-    protected $fillable = array('client_id', 'title', 'content', 'thumbnail', 'publish_date', 'category_id');
+    protected $fillable = array('user_id', 'title', 'content', 'thumbnail', 'publish_date', 'category_id');
     
 
 
@@ -17,9 +17,9 @@ class Post extends Model
     }
  
 
-    public function client()
+    public function user()
     {
-    	return $this->belongsTo(Client::class); 
+    	return $this->belongsTo('App\User'); 
 
     }	 
  

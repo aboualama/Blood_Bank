@@ -27,6 +27,8 @@ Route::group(['prefix' => 'v1.1' , 'namespace' => 'Api'] , function(){
 		Route::get('profile' , 'AuthController@profile'); 
 		Route::put('profile/update' , 'AuthController@update'); 
 
+		Route::get('city' , 'CityController@city'); 
+
 		Route::get('posts' , 'PostController@index');
 		Route::get('post/{id}' , 'PostController@show'); 
 

@@ -49,14 +49,14 @@ class DonationController extends Controller
         $data = $request->all(); 
         $validator = validator()->make($data, [
 
-            'name'             => 'required',
-            'age'              => 'required',
+            'name'             => 'required|min:6',
+            'age'              => 'required|numeric',
             'blood_type'       => 'required|in:O-,O+,B-,B+,A+,A-,AB-,AB+',
-            'bags_num'         => 'required',
-            'hospital_name'    => 'required',
+            'bags_num'         => 'required|numeric',
+            'hospital_name'    => 'required|min:6',
             'hospital_address' => 'required', 
-            'city_id'          => 'required', 
-            'phone'            => 'required', 
+            'city_id'          => 'required|numeric',
+            'phone'            => 'required|numeric',
             'notes'            => 'required', 
             'latitude'         => 'required|numeric', 
             'longitude'        => 'required|numeric', 

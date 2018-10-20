@@ -79,10 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                    {{-- @foreach($str as $stra) --}}
-                    {{$str}}, <br>
-                    {{-- @endforeach --}}
+                    Laravel 
                 </div>
 
                 <div class="links">

@@ -15,7 +15,7 @@ class CreateBloodTypeClientTable extends Migration {
 			$table->integer('blood_type_id')->unsigned()->nullable();
             $table->foreign('blood_type_id')->references('id')->on('blood_types')->onDelete('cascade'); 
             
-            $table->primary(['client_id','blood_type_id']);
+            // $table->primary(['client_id','blood_type_id']);
 		});
 	}
 

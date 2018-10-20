@@ -15,8 +15,8 @@ class CreatePostsTable extends Migration {
 			$table->string('thumbnail')->nullable();
 			$table->date('publish_date'); 
 
-			$table->integer('client_id')->unsigned()->nullable();
-            $table->foreign('client_id')->references('id')->on('clients')
+			$table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')
                   ->onUpdate('cascade')->onDelete('cascade');
 
 

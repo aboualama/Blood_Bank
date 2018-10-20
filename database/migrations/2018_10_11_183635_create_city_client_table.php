@@ -15,7 +15,7 @@ class CreateCityClientTable extends Migration {
 			$table->integer('city_id')->unsigned()->nullable();
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade'); 
             
-            $table->primary(['city_id','client_id']);
+            // $table->primary(['city_id','client_id']);
 		});
 	}
 
