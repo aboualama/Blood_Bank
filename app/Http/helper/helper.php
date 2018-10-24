@@ -17,6 +17,13 @@ if(!function_exists('responsejson')){
 }
 
 
+if(!function_exists('user')){
+	function user(){ 
+		return Auth::user();
+	}
+} 
+
+
 if(!function_exists('auth_client')){
 	function auth_client(){ 
 		return auth()->guard('api');
