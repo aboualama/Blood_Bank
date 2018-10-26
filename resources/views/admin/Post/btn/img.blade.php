@@ -1,0 +1,1 @@
+<img src="{{ url('/') }}/uploads/Post/{{ $thumbnail }}" width="50px;" height="50px">

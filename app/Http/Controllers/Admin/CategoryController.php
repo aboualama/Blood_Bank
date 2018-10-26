@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Governorate;
-use App\DataTables\GovernorateDatatable;
+use App\Models\Category;
+use App\DataTables\CategoryDatatable;
 
-class GovernorateController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(GovernorateDatatable $model)
+    public function index(CategoryDatatable $model)
     {
-        return $model->render('admin.governorate.index' , ['title' => 'Governorate']); 
+        return $model->render('admin.Category.index' , ['title' => 'Category']); 
     }
 
     /**
@@ -26,7 +26,7 @@ class GovernorateController extends Controller
      */
     public function create()
     {
-        return view('admin.governorate.create' , ['title' => 'Governorate']);
+        return view('admin.Category.create' , ['title' => 'Category']);
     }
 
     /**
@@ -39,12 +39,12 @@ class GovernorateController extends Controller
     { 
         $data = $this->validate($request, [
 
-            'name'             => 'required|min:6', 
+            'name'             => 'required|min:6',  
         ]);
  
-        $record = Governorate::create($data);   
+        $record = Category::create($data);   
 
-        return redirect('dashboard/governorate')->with('success' , 'Record Created');
+        return redirect('dashboard/Category')->with('success' , 'Record Created');
   
     }
 
@@ -67,8 +67,8 @@ class GovernorateController extends Controller
      */
     public function edit($id)
     {
-        $record = Governorate::findOrFail($id);
-        return view('admin.governorate.edit' , compact('record') , ['title' => 'Governorate']);
+        $record = Category::findOrFail($id);
+        return view('admin.Category.edit' , compact('record') , ['title' => 'Category']);
     }
 
     /**
@@ -82,13 +82,13 @@ class GovernorateController extends Controller
     {
         $data = $this->validate($request, [
 
-            'name'             => 'required|min:6', 
+            'name'             => 'required|min:6',  
         ]);
  
-        $record = Governorate::find($id); 
+        $record = Category::find($id); 
         $done   = $record->update($data);   
 
-        return redirect('dashboard/governorate')->with('success' , 'Record Updated');
+        return redirect('dashboard/Category')->with('success' , 'Record Updated');
     }
 
     /**
@@ -99,7 +99,7 @@ class GovernorateController extends Controller
      */
     public function destroy($id)
     {  
-        $done   = Governorate::destroy($id);  
+        $done   = Category::destroy($id);  
         return back()->with('success' , 'Record Deleted');
     }
 }

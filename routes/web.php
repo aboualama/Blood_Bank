@@ -11,23 +11,24 @@
 |
 */
  
+Route::get('/', function () { return view('welcome'); });
 
 Auth::routes(); 
 
 Route::group(['middleware' => 'auth'] , function(){
-
-	Route::get('/', function () { return view('admin.dashboard'); });
 	
-
 	Route::group(['prefix' => 'dashboard' , 'namespace' => 'Admin'] , function(){
  
-		// Route::get('/', function () { return view('admin.dashboard'); });
-
+		Route::get('/', function () { return view('admin.dashboard'); });
 
 		Route::get('/user', 'UserController@index'); 
 		Route::get('/user/logout', 'UserController@logout'); 
 
 
+		Route::resource('/Governorate', 'GovernorateController');
+		Route::resource('/City', 'CityController');
+		Route::resource('/Category', 'CategoryController');
+		Route::resource('/Post', 'PostController');
 
 	});
 });

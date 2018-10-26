@@ -1,4 +1,4 @@
- {!! Form::open(['method' => 'DELETE', 'url' => ['admin/brand/delete', $id]]) !!}
+ {!! Form::open(['method' => 'DELETE', 'url' => ['dashboard/Governorate', $id]]) !!}
 
  
     <div class="form-group">

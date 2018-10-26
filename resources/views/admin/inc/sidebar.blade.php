@@ -33,11 +33,14 @@
               <li><a href="/admin/settings"><i class="fa fa-circle-o"></i>Setting</a></li>    
             </ul>
           </li> 
- 
-
+  
 
         <li><a href="{{url('dashboard/user')}}"><i class="fa fa-circle-o text-red"></i> <span>User</span></a></li>
   
+        <li><a href="{{url('dashboard/Governorate')}}"><i class="fa fa-circle-o text-red"></i> <span>Governorate</span></a></li>
+        <li><a href="{{url('dashboard/City')}}"><i class="fa fa-circle-o text-red"></i> <span>City</span></a></li>
+        <li><a href="{{url('dashboard/Category')}}"><i class="fa fa-circle-o text-red"></i> <span>Category</span></a></li>
+        <li><a href="{{url('dashboard/Post')}}"><i class="fa fa-circle-o text-red"></i> <span>Post</span></a></li>
 
 
  

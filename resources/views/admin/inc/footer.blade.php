@@ -222,6 +222,8 @@
   <script src="{{ url('/') }}/cpanel/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
   <script src="{{ url('/') }}/vendor/dataTables/buttons.server-side.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.0.1/js/dataTables.buttons.min.js"></script>
+
+  
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);

@@ -12,6 +12,9 @@
 
         <div class="box-body">   
 	        <div class="box-body">   
+
+            @include('errors.error')
+                
 	      	   {!! $dataTable->table([ 'class' => 'datatable table table-bordered table-hover'  ]) !!}  
 	        </div>  
         </div>

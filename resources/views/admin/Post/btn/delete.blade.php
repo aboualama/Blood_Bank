@@ -1,6 +1,4 @@
-{{-- <a href="user/delete/{{ $id }}" class="btn btn-danger"><i class="fa fa-edit"></i></a> --}}
-
-{!! Form::open(['method' => 'DELETE', 'url' => ['admin/user/delete', $id]]) !!}
+ {!! Form::open(['method' => 'DELETE', 'url' => ['dashboard/Post', $id]]) !!}
 
  
     <div class="form-group">

@@ -2,10 +2,10 @@
 
 namespace App\DataTables;
 
-use App\User;
+use App\Models\Category;
 use Yajra\DataTables\Services\DataTable;
 
-class UserDatatable extends DataTable
+class CategoryDatatable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -16,11 +16,11 @@ class UserDatatable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->addColumn('edit', 'admin.user.btn.edit')
-            ->addColumn('delete', 'admin.user.btn.delete')
+            ->addColumn('edit', 'admin.Category.btn.edit')
+            ->addColumn('delete', 'admin.Category.btn.delete') 
             ->rawColumns([
                 'edit',
-                'delete',
+                'delete', 
             ]);
     }
 
@@ -30,10 +30,10 @@ class UserDatatable extends DataTable
      * @param \App\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query(Category $model)
     {
-        return $model->newQuery()->select('id', 'name', 'email','created_at', 'updated_at');
-    }
+         return $model->query();
+    } 
 
     /**
      * Optional method if you want to use html builder.
@@ -45,10 +45,19 @@ class UserDatatable extends DataTable
         return $this->builder()
                     ->columns($this->getColumns())
                     ->minifiedAjax() 
-                    ->parameters([ 
+                    ->parameters([
+                        'dom'        => 'Blfrtip',
                         'lengthMenu' => [[10, 25, 50, 100, -1], [10, 25, 50, 'All Record']],
-     
-            ]);
+                        'buttons'    => [
+                            [
+                                'text'      => '<i class="fa fa-plus"></i> ' .'Create' ,
+                                'className' => 'btn btn-info',
+                                'action'    => 'function(){
+                                    window.location.href =  "/dashboard/Category/create";
+                                }',
+                            ], 
+                        ],
+                    ]);
     }
 
     /**
@@ -60,10 +69,7 @@ class UserDatatable extends DataTable
     {
         return [
             'id',
-            'name',  
-            'email', 
-            'created_at',
-            'updated_at',
+            'name',    
             [
                 'name'       => 'edit',
                 'data'       => 'edit',
@@ -92,6 +98,6 @@ class UserDatatable extends DataTable
      */
     protected function filename()
     {
-        return 'User_' . date('YmdHis');
+        return 'Category_' . date('YmdHis');
     }
 }

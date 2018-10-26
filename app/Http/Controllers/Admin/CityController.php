@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Governorate;
-use App\DataTables\GovernorateDatatable;
+use App\Models\City;
+use App\DataTables\CityDatatable;
 
-class GovernorateController extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(GovernorateDatatable $model)
+    public function index(CityDatatable $model)
     {
-        return $model->render('admin.governorate.index' , ['title' => 'Governorate']); 
+        return $model->render('admin.City.index' , ['title' => 'City']); 
     }
 
     /**
@@ -26,7 +26,7 @@ class GovernorateController extends Controller
      */
     public function create()
     {
-        return view('admin.governorate.create' , ['title' => 'Governorate']);
+        return view('admin.City.create' , ['title' => 'City']);
     }
 
     /**
@@ -40,11 +40,12 @@ class GovernorateController extends Controller
         $data = $this->validate($request, [
 
             'name'             => 'required|min:6', 
+            'governorate_id'   => 'required|numeric'
         ]);
  
-        $record = Governorate::create($data);   
+        $record = City::create($data);   
 
-        return redirect('dashboard/governorate')->with('success' , 'Record Created');
+        return redirect('dashboard/City')->with('success' , 'Record Created');
   
     }
 
@@ -67,8 +68,8 @@ class GovernorateController extends Controller
      */
     public function edit($id)
     {
-        $record = Governorate::findOrFail($id);
-        return view('admin.governorate.edit' , compact('record') , ['title' => 'Governorate']);
+        $record = City::findOrFail($id);
+        return view('admin.City.edit' , compact('record') , ['title' => 'City']);
     }
 
     /**
@@ -83,12 +84,13 @@ class GovernorateController extends Controller
         $data = $this->validate($request, [
 
             'name'             => 'required|min:6', 
+            'governorate_id'   => 'required|numeric'
         ]);
  
-        $record = Governorate::find($id); 
+        $record = City::find($id); 
         $done   = $record->update($data);   
 
-        return redirect('dashboard/governorate')->with('success' , 'Record Updated');
+        return redirect('dashboard/City')->with('success' , 'Record Updated');
     }
 
     /**
@@ -99,7 +101,7 @@ class GovernorateController extends Controller
      */
     public function destroy($id)
     {  
-        $done   = Governorate::destroy($id);  
+        $done   = City::destroy($id);  
         return back()->with('success' , 'Record Deleted');
     }
 }
