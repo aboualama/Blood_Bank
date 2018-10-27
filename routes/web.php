@@ -29,6 +29,13 @@ Route::group(['middleware' => 'auth'] , function(){
 		Route::resource('/City', 'CityController');
 		Route::resource('/Category', 'CategoryController');
 		Route::resource('/Post', 'PostController');
+		Route::resource('/Client', 'ClientController');
+		Route::post('/Client/active/{id}', 'ClientController@active');
+			
+
+
+		Route::get('/Settings', 'SettingsController@edit');
+		Route::put('/Settings/edit', 'SettingsController@update');  
 
 	});
 });

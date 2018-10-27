@@ -12,7 +12,6 @@ class CreateSettingsTable extends Migration {
 			$table->timestamps();
 			$table->string('phone');
 			$table->string('email');
-			$table->text('about_app');
 			$table->string('facebook_url');
 			$table->string('twitter_url');
 			$table->string('youtube_url');

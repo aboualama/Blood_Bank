@@ -40,7 +40,9 @@
                 <div class="form-group">
                     <label class=" control-label">Post content</label>
                     <div class=" ">
-                        <input type="text" class="form-control" name="content"  required autofocus> 
+                        <textarea type="text" class="form-control ckeditor" name="content"  required autofocus>
+                            
+                        </textarea>
                     </div>
                 </div> 
                         

@@ -41,6 +41,9 @@
         <li><a href="{{url('dashboard/City')}}"><i class="fa fa-circle-o text-red"></i> <span>City</span></a></li>
         <li><a href="{{url('dashboard/Category')}}"><i class="fa fa-circle-o text-red"></i> <span>Category</span></a></li>
         <li><a href="{{url('dashboard/Post')}}"><i class="fa fa-circle-o text-red"></i> <span>Post</span></a></li>
+        <li><a href="{{url('dashboard/Settings')}}"><i class="fa fa fa-server text-red"></i> <span>Settings</span></a></li>
+        <li><a href="{{url('dashboard/Client')}}"><i class="fa fa fa-server text-red"></i> <span>Client</span></a></li>
+
 
 
  
