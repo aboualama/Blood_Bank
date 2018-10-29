@@ -29,8 +29,14 @@ Route::group(['middleware' => 'auth'] , function(){
 		Route::resource('/City', 'CityController');
 		Route::resource('/Category', 'CategoryController');
 		Route::resource('/Post', 'PostController');
-		Route::resource('/Client', 'ClientController');
+
+		Route::get('/Client', 'ClientController@index');
 		Route::post('/Client/active/{id}', 'ClientController@active');
+		Route::delete('/Client/{id}', 'ClientController@destroy');
+
+		
+		Route::get('/Donation', 'DonationRequestController@index');
+		Route::delete('/Donation/{id}', 'DonationRequestController@destroy');
 			
 
 

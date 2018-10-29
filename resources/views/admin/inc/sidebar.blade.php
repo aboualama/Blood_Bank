@@ -22,7 +22,7 @@
         
          
    
-          <li class="treeview ">
+ {{--          <li class="treeview ">
             <a href="#">
               <i class="fa fa-server"></i> <span>Setting</span>
               <span class="pull-right-container">
@@ -32,10 +32,8 @@
             <ul class="treeview-menu">
               <li><a href="/admin/settings"><i class="fa fa-circle-o"></i>Setting</a></li>    
             </ul>
-          </li> 
-  
-
-        <li><a href="{{url('dashboard/user')}}"><i class="fa fa-circle-o text-red"></i> <span>User</span></a></li>
+          </li>  --}}
+   
   
         <li><a href="{{url('dashboard/Governorate')}}"><i class="fa fa-circle-o text-red"></i> <span>Governorate</span></a></li>
         <li><a href="{{url('dashboard/City')}}"><i class="fa fa-circle-o text-red"></i> <span>City</span></a></li>
@@ -43,6 +41,7 @@
         <li><a href="{{url('dashboard/Post')}}"><i class="fa fa-circle-o text-red"></i> <span>Post</span></a></li>
         <li><a href="{{url('dashboard/Settings')}}"><i class="fa fa fa-server text-red"></i> <span>Settings</span></a></li>
         <li><a href="{{url('dashboard/Client')}}"><i class="fa fa fa-server text-red"></i> <span>Client</span></a></li>
+        <li><a href="{{url('dashboard/Donation')}}"><i class="fa fa fa-server text-red"></i> <span>Donation</span></a></li>
 
 
 

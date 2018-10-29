@@ -39,7 +39,9 @@
                 <div class="form-group">
                     <label class=" control-label">Post content</label>
                     <div class=" ">
-                        <input type="text" class="form-control" name="content" value="{{ $record->content }}"  required autofocus> 
+                        <textarea type="text" class="form-control ckeditor" name="content"  required autofocus>
+                             {{ $record->content }}
+                        </textarea>
                     </div>
                 </div> 
                         
@@ -52,7 +54,7 @@
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>  
                             @endforeach 
 
-                      </select> 
+                      </select>
                 </div> 
 
                 <div class="form-group">
