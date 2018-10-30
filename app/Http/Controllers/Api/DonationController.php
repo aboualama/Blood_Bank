@@ -34,7 +34,7 @@ class DonationController extends Controller
        
     public function show($id)
     {   
-        $donation = DonationRequest::where('id' , $id)->first(); 
+        $donation = DonationRequest::find($id); 
         if(! $donation)
         {
             return responsejson( 0 , 'OPPs' , 'There Is No Donation Request');
@@ -66,8 +66,7 @@ class DonationController extends Controller
         {
             return responsejson( 0 , $validator->errors()->first() , $validator->errors()); 
         } 
-        $donation = DonationRequest::create($request->all());  
-        $donation->save();
+        $donation = DonationRequest::create($request->all());   
         return responsejson(1 , 'OK' , $donation ); 
     }  
  

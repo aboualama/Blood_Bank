@@ -18,13 +18,12 @@ class CityController extends Controller
     	    		{
     	    			$query->where('governorate_id' , $request->governorate_id);
     	    		} 
-    	    	})->with('governorate')->with('client')->paginate(10);
+    	    	})->with('governorate' , 'client')->paginate(10);
 
         return responsejson(1 , 'ok' , $city); 
     }
  
 
 }
-
-        // $request->client_id = auth()->guard('api')->id; 
+ 
  

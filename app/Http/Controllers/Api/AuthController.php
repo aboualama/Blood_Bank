@@ -112,7 +112,7 @@ class AuthController extends Controller
 
     public function profile (request $request)
     {   
-        $client = Client::where('api_token' ,  $request->api_token)->first();  
+        $client = $request->user();  
         return responsejson(1 , 'OK' ,  $client);   
 
     } 
