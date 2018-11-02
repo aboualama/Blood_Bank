@@ -55,18 +55,12 @@ class AuthController extends Controller
     	{
         	return responsejson(0 , $validator->errors()->first() , $validator->errors()); 
     	}  
-    	$client = Client::where('phone' , $request->phone)->with('DonationRequests')->first();  
+    	$client = Client::where('phone' , $request->phone)->load('DonationRequests')->first();  
     	if($client)
     	{
     		if(Hash::check($request->password , $client->password)) // --  ranking is important (string, hashed)
     			{
-    				return responsejson(1 , 'OK' , 
-                                					[	
-                                						'Api_Token' => $client->api_token,
-                                						'password'	=> $client->password,
-                                                        'city'      => $client->city->name,
-                                						'client'    => $client, 
-                                					]); 
+    				return responsejson(1 , 'OK' , $client); 
     			}
     		else 
           		{ 
@@ -75,8 +69,7 @@ class AuthController extends Controller
     	} 
         return responsejson(0 , 'fails' , 'phone is wrong');  
     }  
-
-
+ 
 
 
     public function update(request $request )

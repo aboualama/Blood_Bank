@@ -20,32 +20,22 @@
                     <thead>
                         <tr >
                             <th>#</th>
-                            <th>Client Name</th>
-                            <th>Patient Name</th>
-                            <th>Patient Age</th>
-                            <th>Blood Type</th>
-                            <th>Bags Num</th>
-                            <th>Hospital Name</th>
-                            <th>City</th> 
+                            <th>Client Name</th> 
+                            <th>Message</th> 
                             <th class="text-center">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @include('errors.error')  
+                    @include('errors.error') 
                         @foreach ($records as $index=>$record)
-                        <tr>                       
+                        <tr>                        
                     
                             <td>{{$index + 1}}</td>
-                            <td>{{$record->client->name}}</td>
-                            <td>{{$record->name}}</td>
-                            <td>{{$record->age}}</td>
-                            <td>{{$record->blood_type}}</td>
-                            <td>{{$record->bags_num}}</td>
-                            <td>{{$record->hospital_name}}</td> 
-                            <td>{{$record->city->name}}</td> 
+                            <td><a href="{{url('dashboard/Report')}}/{{$record->id}}">{{$record->client->name}}</a></td> 
+                            <td>{!! str_limit( strip_tags($record->message)   , 10 , $end = '   ..... ') !!}  </td>  
 
                             <td class="text-center">  
-                                {!! Form::open(['method' => 'DELETE', 'url' => ['dashboard/Donation', $record->id]]) !!} 
+                                {!! Form::open(['method' => 'DELETE', 'url' => ['dashboard/Report', $record->id]]) !!} 
                                     <div class="form-group">
                                         <div class=" ">
                                             <button type="submit" class="btn  btn-danger">

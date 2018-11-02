@@ -42,6 +42,8 @@
         <li><a href="{{url('dashboard/Settings')}}"><i class="fa fa fa-server text-red"></i> <span>Settings</span></a></li>
         <li><a href="{{url('dashboard/Client')}}"><i class="fa fa fa-server text-red"></i> <span>Client</span></a></li>
         <li><a href="{{url('dashboard/Donation')}}"><i class="fa fa fa-server text-red"></i> <span>Donation</span></a></li>
+        <li><a href="{{url('dashboard/Contact')}}"><i class="fa fa fa-server text-red"></i> <span>Contact</span></a></li>
+        <li><a href="{{url('dashboard/Report')}}"><i class="fa fa fa-server text-red"></i> <span>Report</span></a></li>
 
 
 

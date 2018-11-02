@@ -40,8 +40,16 @@ Route::group(['middleware' => 'auth'] , function(){
 			
 
 
-		Route::get('/Settings', 'SettingsController@edit');
+		Route::get('/Settings', 'SettingsController@edit'); 
 		Route::put('/Settings/edit', 'SettingsController@update');  
+
+		Route::get('/Contact', 'ContactController@index');  
+		Route::get('/Contact/{id}', 'ContactController@show');  
+		Route::delete('/Contact/{id}', 'ContactController@destroy');  
+
+		Route::get('/Report', 'ReportController@index');  
+		Route::get('/Report/{id}', 'ReportController@show');  
+		Route::delete('/Report/{id}', 'ReportController@destroy');  
 
 	});
 });

@@ -42,10 +42,8 @@ class SettingController extends Controller
         if ($validator->fails()) 
         {
             return responsejson( 0 , $validator->errors()->first() , $validator->errors()); 
-        } 
-        // $request->client_id = auth()->guard('api')->id;   
-        $report = Report::create($data);  
-        $report->save();
+        }   
+        $report = Report::create($data);   
         return responsejson(1 , 'OK' , $report); 
     } 
  

@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;  
-use Mail; 
+// use Mail; 
+use App\Models\Contact; 
 
 class ContactController extends Controller
 {
       
     public function contact (request $request)
     { 
+        $data = $request->all();
         $validator = validator()->make($request->all(), [
             'name'      => 'required',
             'email'     => 'required|email',
@@ -22,19 +24,24 @@ class ContactController extends Controller
         {
             return responsejson(1 , $validator->errors()->first() , $validator->errors()); 
         } 
-        $data = array(
-            'name'        => $request->name,
-            'email'       => $request->email,
-            'telephone'   => $request->telephone,
-            'subject'     => $request->subject,
-            'bodyMessage' => $request->message
-            ); 
-        Mail::send('we', $data, function($message) use ($data){
-            $message->from($data['email']);
-            $message->to('aboualama@gmail.com');
-            $message->subject($data['subject']);
-        }); 
-        return responsejson( 1 , 'Your Email Was Sent Successfully !' , $data );    
-    }
+        // $data = array(
+        //     'name'        => $request->name,
+        //     'email'       => $request->email,
+        //     'telephone'   => $request->telephone,
+        //     'subject'     => $request->subject,
+        //     'bodyMessage' => $request->message
+        //     ); 
+        // Mail::send('we', $data, function($message) use ($data){
+        //     $message->from($data['email']);
+        //     $message->to('aboualama@gmail.com');
+        //     $message->subject($data['subject']);
+        // }); 
+        // return responsejson( 1 , 'Your Email Was Sent Successfully !' , $data );    
+ 
 
+        $data['client_id']  = 9;
+        $report = Contact::create($data);   
+        return responsejson(1 , 'OK' , $report); 
+         
+    }        
 }

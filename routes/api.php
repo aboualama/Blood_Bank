@@ -22,7 +22,7 @@ Route::group(['prefix' => 'v1.1' , 'namespace' => 'Api'] , function(){
 
 
 
-	Route::group(['middleware' => 'auth:api'] , function(){  
+	// Route::group(['middleware' => 'auth:api'] , function(){  
 
 		Route::get('profile' , 'AuthController@profile'); 
 		Route::put('profile/update' , 'AuthController@update'); 
@@ -46,7 +46,7 @@ Route::group(['prefix' => 'v1.1' , 'namespace' => 'Api'] , function(){
 		Route::post('contact' , 'ContactController@contact');
  
 		Route::post('notification' , 'NotificationController@notification'); 
-	});
+	// });
 
 });
 

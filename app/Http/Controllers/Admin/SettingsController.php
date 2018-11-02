@@ -15,7 +15,7 @@ class SettingsController extends Controller
     public function edit()
     {
         $settings   = Settings::first();
-        return view('admin.settings.edit', compact('settings'));
+        return view('admin.settings.edit', compact('settings'))->with('title' , 'Settings'); 
     }
 
  
